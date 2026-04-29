@@ -206,7 +206,7 @@
 .about-creative .noise-layer {
   position: absolute;
   inset: 0;
-  background: url('../img/noise.png');
+  background: url('../img/noise.webp');
   background-size: 200px;
   /* repeat nicely */
   opacity: 0.05;
@@ -692,7 +692,7 @@
   position: absolute;
   inset: 0;
 
-  background-image: url("../img/pattern-light.png");
+  background-image: url("../img/pattern-light.webp");
 
   background-repeat: repeat;
 
@@ -2305,14 +2305,19 @@ MOBILE RESPONSIVE
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  text-align: center;
-  transform: translateY(-10px);
+  
+  /* ✅ IMPORTANT FIX */
+  aspect-ratio: 16 / 9;   /* adjust if your map image ratio differs */
+  width: 100%;
 }
 
-/* MAP IMAGE */
+/* Make image fully fill container */
 .world-map {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  display: block;
+  height: 100%;
+  object-fit: contain;   /* keeps map proportions */
   opacity: 0.6;
   filter: grayscale(100%) brightness(0.75);
 }
@@ -2370,8 +2375,8 @@ MOBILE RESPONSIVE
 
 /* INDIA (MAIN HUB) */
 .india {
-  top: 53%;
-  left: 69%;
+  top: 51.5%;
+  left: 66%;
 }
 
 /* USA */
@@ -2383,7 +2388,7 @@ MOBILE RESPONSIVE
 /* UK */
 .uk {
   top: 36.5%;
-  left: 44.5%;
+  left: 45%;
 }
 
 /* GERMANY */
@@ -2394,14 +2399,14 @@ MOBILE RESPONSIVE
 
 /* UAE */
 .uae {
-  top: 48.5%;
-  left: 61.5%;
+  top: 49.5%;
+  left: 61%;
 }
 
 /* SAUDI */
 .saudi {
-  top: 49%;
-  left: 59%;
+  top: 48%;
+  left: 57.5%;
 }
 
 /* SOUTH AFRICA */
@@ -2412,8 +2417,8 @@ MOBILE RESPONSIVE
 
 /* AUSTRALIA */
 .australia {
-  top: 68%;
-  left: 88%;
+  top: 69%;
+  left: 81.5%;
 }
 
 /* =========================================

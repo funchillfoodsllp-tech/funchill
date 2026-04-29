@@ -153,7 +153,6 @@ body.offcanvas-open {
   pointer-events: none;
 }
 
-
 /* ================= MOBILE OFFCANVAS PREMIUM ================= */
 
 .offcanvas {
@@ -172,11 +171,20 @@ body.offcanvas-open {
   color: #3b1f0f;
 }
 
+/* BODY LAYOUT (PROPER STACKING) */
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px; /* clean modern spacing */
+}
+
 /* LINKS */
 .offcanvas .nav-link {
   display: block;
+  width: 100%;
   padding: 12px 15px;
-  margin: 6px 0;
+  margin: 0; /* remove vertical margin (gap handles spacing) */
   border-radius: 12px;
   font-weight: 600;
   transition: 0.3s;
@@ -187,17 +195,20 @@ body.offcanvas-open {
   color: #ff7a00;
 }
 
-/* ACTIVE */
+/* ACTIVE LINK */
 .offcanvas .nav-link.active {
   background: linear-gradient(135deg, #ff7a00, #ff3b3b);
   color: #fff !important;
 }
 
-/* BUTTON */
+/* BUTTON (FINAL CLEAN VERSION) */
 .offcanvas .btn-quote {
+  display: block;
   width: 100%;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 12px; /* single spacing rule */
+  padding: 12px 18px;
+  border-radius: 40px;
 }
 
 /* ===== TABLET (≤ 992px) ===== */

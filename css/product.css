@@ -128,14 +128,15 @@
 
 .product-list-section .row {
   row-gap: 60px;
-   display: flex;
+  display: flex;
   flex-wrap: wrap;
   /* vertical spacing */
 }
 
-.product-list-section .row > div {
+.product-list-section .row>div {
   flex: 1 1 300px;
 }
+
 /* HOVER */
 .product-card:hover {
   transform: translateY(-12px);
@@ -151,6 +152,16 @@
 .product-card:hover p {
   color: rgba(255, 255, 255, 0.9);
 }
+
+/* when card is hovered */
+.product-card:hover p .heading {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.product-card:hover p .value {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 
 /* ================= IMAGE ================= */
 .product-img {
@@ -198,27 +209,32 @@
   min-height: 80px;
 }
 
-/* ================= BUTTON ================= */
-.product-btn {
-  display: inline-block;
-  padding: 10px 22px;
-  background: #2f4e7c;
-  color: white;
-  border-radius: 25px;
-  font-size: 13px;
+.heading {
+  color: #1f140d;
+  /* deep rich espresso brown */
   font-weight: 600;
-  text-decoration: none;
-
-  margin-top: auto;
-  align-self: center;
-
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.product-card:hover .product-btn {
-  background: #ffffff;
-  color: #ff6a00;
+.value {
+  color: #777;
+    font-weight: 500;
+  transition: color 0.3s ease;
 }
+
+/* HOVER EFFECT */
+.heading:hover {
+  color: #3a2416;
+  /* slightly lighter warm espresso highlight */
+}
+
+.value:hover {
+  color: #7a5a45;
+  /* soft warm lift for readability */
+}
+
+/* ================= BUTTON ================= */
+
 
 /* ================= EXPLORE BUTTON ================= */
 .product-explore-btn {
@@ -317,7 +333,7 @@
     min-height: auto;
   }
 
-.product-img {
+  .product-img {
     width: 150px;
     height: 150px;
     top: -70px;
@@ -335,7 +351,7 @@
   .product-header h2 {
     font-size: 22px;
   }
- 
+
   .product-sub {
     font-size: 13px;
   }
@@ -348,7 +364,7 @@
     border-radius: 18px;
   }
 
-   .product-img {
+  .product-img {
     width: 130px;
     height: 130px;
     top: -65px;

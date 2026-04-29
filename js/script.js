@@ -1,80 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* ================= SELECTORS ================= */
   const navbar = document.querySelector(".custom-navbar");
   const backToTop = document.getElementById("backToTop");
   const circle = document.querySelector(".progress-ring-circle");
   const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll("section");
+  const tabs = document.querySelectorAll(".tab-btn");
+  const contents = document.querySelectorAll(".tab-content");
+  const emailInput = document.getElementById("emailField");
+  const sourceInput = document.getElementById("sourceField");
+  const cards = document.querySelectorAll(".cert-card");
 
   let lastScroll = 0;
+  let ticking = false;
 
-  /* ===== PROGRESS RING SETUP ===== */
+  /* ================= PROGRESS RING ================= */
   let circumference = 0;
 
   if (circle) {
     const radius = circle.r.baseVal.value;
     circumference = 2 * Math.PI * radius;
-
     circle.style.strokeDasharray = circumference;
     circle.style.strokeDashoffset = circumference;
   }
 
-  /* ================= SCROLL HANDLER ================= */
-  window.addEventListener("scroll", () => {
+  /* ================= SCROLL (OPTIMIZED) ================= */
+  function handleScroll() {
 
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? scrollTop / docHeight : 0;
 
-    /* ===== NAVBAR BG + HIDE/SHOW ===== */
+    /* NAVBAR */
     if (navbar) {
       navbar.classList.toggle("scrolled", scrollTop > 50);
 
-      if (scrollTop > lastScroll && scrollTop > 100) {
-        navbar.style.transform = "translateY(-100%)";
-      } else {
-        navbar.style.transform = "translateY(0)";
-      }
+      const hideNav = scrollTop > lastScroll && scrollTop > 100;
+      navbar.classList.toggle("nav-hidden", hideNav);
     }
 
     lastScroll = scrollTop;
 
-    /* ===== BACK TO TOP BUTTON ===== */
+    /* BACK TO TOP */
     if (backToTop) {
-      if (scrollTop > 300) {
-        backToTop.classList.add("active"); // ✅ match CSS
-      } else {
-        backToTop.classList.remove("active");
-      }
+      backToTop.classList.toggle("active", scrollTop > 300);
     }
 
-    /* ===== PROGRESS RING ===== */
+    /* PROGRESS RING */
     if (circle) {
       const offset = circumference - progress * circumference;
       circle.style.strokeDashoffset = offset;
     }
 
-    // /* ===== ACTIVE NAV LINK ===== */
-    // let currentSection = "";
+    ticking = false;
+  }
 
-    // sections.forEach(section => {
-    //   const sectionTop = section.offsetTop - 120;
-    //   const sectionHeight = section.offsetHeight;
-
-    //   if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-    //     currentSection = section.getAttribute("id");
-    //   }
-    // });
-
-    // navLinks.forEach(link => {
-    //   link.classList.remove("active");
-
-    //   if (link.getAttribute("href") === "#" + currentSection) {
-    //     link.classList.add("active");
-    //   }
-    // });
-
-  });
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  }, { passive: true });
 
   /* ================= SMOOTH SCROLL ================= */
   navLinks.forEach(link => {
@@ -85,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const targetSection = document.querySelector(targetId);
-
         if (targetSection) {
           window.scrollTo({
             top: targetSection.offsetTop - 80,
@@ -100,14 +85,65 @@ document.addEventListener("DOMContentLoaded", function () {
   if (backToTop) {
     backToTop.addEventListener("click", (e) => {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
-  /* ================= AOS INIT ================= */
+  /* ================= TABS ================= */
+  tabs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabs.forEach(b => b.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+
+  /* ================= URL PARAMS ================= */
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get("email");
+  const source = params.get("source");
+
+  if (email && emailInput) emailInput.value = email;
+  if (source && sourceInput) sourceInput.value = source;
+
+  /* AUTO SOURCE DETECT */
+  if (sourceInput && !source) {
+    const path = window.location.pathname;
+
+    if (path.includes("index")) {
+      sourceInput.value = "homepage-cta";
+    } else if (path.includes("product")) {
+      sourceInput.value = "product-page-cta";
+    } else if (path.includes("about")) {
+      sourceInput.value = "about-page-cta";
+    } else if (path.includes("contact")) {
+      sourceInput.value = "contact-page-cta";
+    } else {
+      sourceInput.value = "unknown";
+    }
+  }
+
+  /* CLEAN URL */
+  if (email || source) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  /* ================= CARD ANIMATION ================= */
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  }
+
+  /* ================= AOS ================= */
   if (typeof AOS !== "undefined") {
     AOS.init({
       duration: 1000,
@@ -118,42 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+const navCollapse = document.getElementById("nav");
 
-
-const tabs = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
-
-tabs.forEach(btn => {
-  btn.addEventListener("click", () => {
-
-    tabs.forEach(b => b.classList.remove("active"));
-    contents.forEach(c => c.classList.remove("active"));
-
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.tab).classList.add("active");
-
+if (navCollapse) {
+  navCollapse.addEventListener("show.bs.collapse", () => {
+    document.body.classList.add("offcanvas-open");
   });
-});
 
-
-// Get email from URL
-const params = new URLSearchParams(window.location.search);
-const email = params.get("email");
-
-// Fill input field if exists
-if (email) {
-  document.getElementById("emailField").value = email;
+  navCollapse.addEventListener("hide.bs.collapse", () => {
+    document.body.classList.remove("offcanvas-open");
+  });
 }
-
-
-const cards = document.querySelectorAll('.cert-card');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.2 });
-
-cards.forEach(card => observer.observe(card));

@@ -13,9 +13,11 @@
       name="description"
       content="Leading frozen French fries manufacturer & exporter from India. Shoestring, crinkle cut, coated fries, veg patties & aloo tikki. Bulk supply & private label available."
     />
+    <meta name="keywords" content="frozen french fries manufacturer India, bulk fries supplier, frozen snacks exporter India" />
 
     <meta name="author" content="Funchill Foods LLP" />
     <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Theme -->
     <meta name="theme-color" content="#0f172a" />
@@ -23,13 +25,18 @@
     <!-- Canonical (IMPORTANT: About Page URL) -->
     <link rel="canonical" href="https://www.funchillfoods.com/product.html" />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/favicon.webp" />
-    <link rel="apple-touch-icon" href="img/favicon.webp" />
+    <link rel="icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 
     <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <link rel="preload" as="image" href="img/header-1.webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="img/product/shoestring-french-fries.webp"
+    />
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
@@ -93,6 +100,8 @@
       name="twitter:image"
       content="https://www.funchillfoods.com/img/product/shoestring-french-fries.webp"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="geo.region" content="IN-GJ" />
     <meta name="geo.placename" content="Meloj, Patan, Gujarat, India" />
@@ -127,7 +136,7 @@
         "name": "Funchill Foods",
         "image": "https://www.funchillfoods.com/img/logo.webp",
         "url": "https://www.funchillfoods.com/",
-        "telephone": "+91-9999999999",
+        "telephone": "+91-9998113851",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Meloj",
@@ -143,7 +152,27 @@
         }
       }
     </script>
-
+    <!-- ================= BREADCRUMB SCHEMA ================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.funchillfoods.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Products",
+            "item": "https://www.funchillfoods.com/product.html"
+          }
+        ]
+      }
+    </script>
     <!-- ================= PRODUCT LIST ================= -->
     <script type="application/ld+json">
       {
@@ -155,7 +184,9 @@
             "@type": "Product",
             "name": "Shoestring French Fries",
             "url": "https://www.funchillfoods.com/product.html#shoestring-french-fries",
-            "image": "https://www.funchillfoods.com/img/product/shoestring-french-fries.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/shoestring-french-fries.webp"
+            ],
             "description": "Ultra-thin frozen shoestring French fries for bulk export.",
             "brand": {
               "@type": "Brand",
@@ -166,16 +197,17 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           },
           {
             "@type": "Product",
             "name": "Straight Cut French Fries",
             "url": "https://www.funchillfoods.com/product.html#straight-cut-french-fries",
-            "image": "https://www.funchillfoods.com/img/product/straight-cut-french-fries.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/straight-cut-french-fries.webp"
+            ],
             "description": "Classic straight cut frozen French fries.",
             "brand": {
               "@type": "Brand",
@@ -186,16 +218,17 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           },
           {
             "@type": "Product",
             "name": "Crinkle Cut French Fries",
             "url": "https://www.funchillfoods.com/product.html#crinkle-cut-french-fries",
-            "image": "https://www.funchillfoods.com/img/product/crinkle-cut-french-fries.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/crinkle-cut-french-fries.webp"
+            ],
             "description": "Ridged crinkle cut fries for extra crunch.",
             "brand": {
               "@type": "Brand",
@@ -206,16 +239,17 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           },
           {
             "@type": "Product",
             "name": "Super Crispy Coated French Fries",
             "url": "https://www.funchillfoods.com/product.html#super-crispy-coated-french-fries",
-            "image": "https://www.funchillfoods.com/img/product/super-crispy-coated-french-fries.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/super-crispy-coated-french-fries.webp"
+            ],
             "description": "Extra crispy coated fries with long-lasting crunch.",
             "brand": {
               "@type": "Brand",
@@ -226,16 +260,17 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           },
           {
             "@type": "Product",
             "name": "Skin-On French Fries",
             "url": "https://www.funchillfoods.com/product.html#skin-on-french-fries",
-            "image": "https://www.funchillfoods.com/img/product/skin-on-french-fries.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/skin-on-french-fries.webp"
+            ],
             "description": "Rustic skin-on fries with premium taste.",
             "brand": {
               "@type": "Brand",
@@ -246,16 +281,17 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           },
           {
             "@type": "Product",
             "name": "Veg Burger Patty",
             "url": "https://www.funchillfoods.com/product.html#veg-burger-patty",
-            "image": "https://www.funchillfoods.com/img/product/veg-burger-patty.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/veg-burger-patty.webp"
+            ],
             "description": "Frozen veg burger patties for QSR and export.",
             "brand": {
               "@type": "Brand",
@@ -266,16 +302,17 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           },
           {
             "@type": "Product",
             "name": "Aloo Tikki",
             "url": "https://www.funchillfoods.com/product.html#aloo-tikki",
-            "image": "https://www.funchillfoods.com/img/product/aloo-tikki.webp",
+            "image": [
+              "https://www.funchillfoods.com/img/product/aloo-tikki.webp"
+            ],
             "description": "Indian style frozen aloo tikki.",
             "brand": {
               "@type": "Brand",
@@ -286,15 +323,37 @@
             "offers": {
               "@type": "Offer",
               "priceCurrency": "INR",
-              "price": "0",
-              "description": "Price varies based on quantity and export destination",
-              "availability": "https://schema.org/InStock"
+              "availability": "https://schema.org/InStock",
+              "description": "Price varies based on quantity and export destination"
             }
           }
         ]
       }
     </script>
-
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you export frozen French fries globally?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we export frozen French fries to multiple countries with complete documentation support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer private label?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we provide OEM and private label packaging for bulk buyers."
+            }
+          }
+        ]
+      }
+    </script>
     <!-- ================= WEBSITE ================= -->
     <script type="application/ld+json">
       {
@@ -318,29 +377,32 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg custom-navbar">
       <div class="container">
+        <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="img/logo.webp" class="logo" />
+          <img src="img/logo.webp" class="logo" alt="Funchill Foods Logo" />
         </a>
 
+        <!-- TOGGLER -->
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#nav"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="nav">
+        <!-- DESKTOP MENU -->
+        <div class="collapse navbar-collapse d-none d-lg-flex" id="nav">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="product.html">Products</a>
+              <a class="nav-link" href="product.html">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
@@ -352,8 +414,43 @@
       </div>
     </nav>
 
+    <!-- ================= MOBILE SLIDE MENU ================= -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <a href="contact.html" class="btn-quote mt-3">Request Quote</a>
+      </div>
+    </div>
+
     <section class="page-header">
-      <img src="img/header-1.webp" class="header-bg" />
+      <img
+        src="img/header-1.webp"
+        class="header-bg"
+        alt="Frozen French Fries Banner"
+      />
       <div class="page-overlay"></div>
 
       <div class="page-header-content">
@@ -365,7 +462,7 @@
         </div>
 
         <!-- Title -->
-        <h1>Frozen French Fries & Potato Products</h1>
+        <h2>Frozen French Fries Manufacturer & Exporter from India</h2>
         <!-- Subtitle -->
         <p>Premium Frozen Foods Crafted for Global Taste</p>
       </div>
@@ -399,14 +496,17 @@
         <div class="row g-4 mt-5">
           <!-- PRODUCT -->
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="shoestring-french-fries" class="product-card">
               <div class="product-img">
                 <img
                   src="img/product/shoestring-french-fries.webp"
-                  alt="Shoestring frozen French fries manufacturer exporter India"
+                  alt="Shoestring frozen French fries manufacturer exporter India bulk supply premium quality"
                   title="Premium Shoestring Frozen French Fries for Export"
                   width="400"
                   height="400"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
                 />
                 <span class="visually-hidden">
                   Frozen French fries exporter India bulk supply premium quality
@@ -414,7 +514,7 @@
               </div>
 
               <div class="product-content">
-                <h4>Shoestring French Fries</h4>
+                <h3>Shoestring French Fries</h3>
                 <p>
                   Ultra-thin frozen shoestring French fries designed for maximum
                   crispiness and fast cooking. Ideal for QSR chains,
@@ -426,20 +526,21 @@
 
           <!-- PRODUCT -->
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="straight-cut-french-fries" class="product-card">
               <div class="product-img">
                 <img
-                  src="img/products/french-fries/straight-cut-french-fries.webp"
-                  alt="Straight cut frozen French fries manufacturer exporter India classic fries bulk supply"
+                  src="img/product/straight-cut-french-fries.webp"
+                  alt="Straight cut frozen French fries supplier exporter India bulk restaurant supply"
                   title="Premium Straight Cut Frozen French Fries for Export"
                   width="400"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div class="product-content">
-                <h4>Straight Cut French Fries</h4>
+                <h3>Straight Cut French Fries</h3>
                 <p>
                   Classic straight-cut fries with a perfect balance of crisp
                   exterior and fluffy interior. Consistent quality and taste,
@@ -450,20 +551,21 @@
           </div>
           <!-- PRODUCT -->
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="crinkle-cut-french-fries" class="product-card">
               <div class="product-img">
                 <img
-                  src="img/products/french-fries/crinkle-cut-french-fries.webp"
-                  alt="Crinkle cut frozen French fries manufacturer exporter India ridged crispy fries bulk supply"
+                  src="img/product/crinkle-cut-french-fries.webp"
+                  alt="Crinkle cut frozen French fries manufacturer India ridged crispy fries bulk export"
                   title="Premium Crinkle Cut Frozen French Fries for Export"
                   width="400"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div class="product-content">
-                <h4>Crinkle Cut French Fries</h4>
+                <h3>Crinkle Cut French Fries</h3>
                 <p>
                   Thick-cut crinkle fries with a signature ridged texture for
                   extra crunch and better seasoning hold. Perfectly golden,
@@ -475,20 +577,21 @@
           </div>
           <!-- PRODUCT -->
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="super-crispy-coated-french-fries" class="product-card">
               <div class="product-img">
                 <img
-                  src="img/products/french-fries/super-crispy-coated-french-fries.webp"
-                  alt="Super crispy coated frozen French fries supplier exporter India long lasting crisp fries bulk"
+                  src="img/product/super-crispy-coated-french-fries.webp"
+                  alt="Super crispy coated frozen French fries supplier India long lasting crunch export quality"
                   title="Extra Crispy Coated Frozen French Fries for Export"
                   width="400"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div class="product-content">
-                <h4>Super Crispy Coated French Fries</h4>
+                <h3>Super Crispy Coated French Fries</h3>
                 <p>
                   Extra crunchy coated fries with a golden texture, delivering
                   long-lasting crispiness and rich potato flavor—perfect for
@@ -498,20 +601,21 @@
             </div>
           </div>
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="skin-on-french-fries" class="product-card">
               <div class="product-img">
                 <img
-                  src="img/products/french-fries/skin-on-french-fries.webp"
-                  alt="Skin on frozen French fries manufacturer exporter India bulk supply rustic potato fries"
+                  src="img/product/skin-on-french-fries.webp"
+                  alt="Skin on frozen French fries premium gourmet fries manufacturer exporter India"
                   title="Premium Skin-On Frozen French Fries for Export"
                   width="400"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div class="product-content">
-                <h4>Skin-On French Fries</h4>
+                <h3>Skin-On French Fries</h3>
                 <p>
                   Natural-cut fries with skin-on texture for enhanced flavor and
                   rustic appeal. Crispy, golden, and rich in taste—ideal for
@@ -523,20 +627,21 @@
 
           <!-- PRODUCT - Veg Burger Patty -->
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="veg-burger-patty" class="product-card">
               <div class="product-img">
                 <img
-                  src="img/products/snacks/veg-burger-patty.webp"
-                  alt="Veg burger patty frozen vegetable patty manufacturer exporter India bulk supply"
+                  src="img/product/veg-burger-patty.webp"
+                  alt="Frozen veg burger patty manufacturer India plant based patty bulk export supplier"
                   title="Premium Frozen Veg Burger Patty for Export and Bulk Supply"
                   width="400"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div class="product-content">
-                <h4>Veg Burger Patty</h4>
+                <h3>Veg Burger Patty</h3>
                 <p>
                   Delicious plant-based patties made from premium vegetables and
                   spices. Crispy on the outside and juicy inside—perfect for
@@ -548,20 +653,21 @@
 
           <!-- PRODUCT - Aloo Tikki -->
           <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="product-card">
+            <div id="aloo-tikki" class="product-card">
               <div class="product-img">
                 <img
-                  src="img/products/snacks/aloo-tikki.webp"
-                  alt="Aloo tikki frozen potato patties manufacturer exporter India bulk supply"
+                  src="img/product/aloo-tikki.webp"
+                  alt="Frozen aloo tikki manufacturer India potato patties bulk export supplier"
                   title="Premium Frozen Aloo Tikki for Export and Bulk Supply"
                   width="400"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div class="product-content">
-                <h4>Aloo Tikki</h4>
+                <h3>Aloo Tikki</h3>
                 <p>
                   Authentic Indian-style potato patties blended with select
                   spices for rich taste and aroma. Crispy outside, soft
@@ -606,7 +712,7 @@
               >
 
               <a
-                href="https://wa.me/919XXXXXXXXX?text=Hello%20I%20am%20interested%20in%20Frozen%20French%20Fries.%20Please%20share%20details."
+                href="https://wa.me/919998113851?text=Hello%20I%20am%20interested%20in%20Frozen%20French%20Fries.%20Please%20share%20details."
                 class="btn-whatsapp"
                 target="_blank"
               >
@@ -616,12 +722,18 @@
 
             <!-- QUICK INTERACTION FORM -->
             <form action="contact.html" method="GET" class="cta-form advanced">
+              <!-- Email Input -->
               <input
                 type="email"
+                id="emailField"
                 name="email"
                 placeholder="Enter your business email"
                 required
               />
+
+              <!-- Hidden Lead Source Tracking -->
+              <input type="hidden" id="sourceField" name="source" />
+              <!-- Submit Button -->
               <button type="submit">Get Export Quote</button>
             </form>
 
@@ -684,7 +796,9 @@
 
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/funchillfood/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/funchillfood/"
+              ><i class="fab fa-instagram"></i
+            ></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
@@ -734,9 +848,9 @@
           <div class="contact-item">
             <div>
               <i class="fa fa-phone"></i>
-              <a href="tel:+919999999999">Sales: +91 99999 99999</a><br />
+              <a href="tel:+919998113851">Sales: +91 99981 13851</a><br />
               <i class="fa fa-phone"></i>
-              <a href="tel:+918888888888">Support: +91 88888 88888</a>
+              <a href="tel:+919998113852">Support: +91 99981 13852</a>
             </div>
           </div>
 
@@ -747,14 +861,14 @@
           </div>
 
           <!-- CTA BUTTON -->
-          <a href="#contact-form" class="btn-footer"> Get Quote → </a>
+          <a href="contact.html" class="btn-footer"> Get Quote → </a>
         </div>
       </div>
 
       <div class="footer-bottom">
         © 2026 <strong>Funchill Foods LLP</strong> | All Rights Reserved
         <br />
-        Designed & Developed by <strong>Nexora Technologies</strong>
+        Designed & Developed by <strong>Orvinox Technologies</strong>
       </div>
     </footer>
     <!-- WHATSAPP BUTTON -->

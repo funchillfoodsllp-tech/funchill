@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Title -->
-    <title>Contact Us | Funchill Foods - Frozen Food Exporter & Supplier</title>
-
+    <title>Contact Funchill Foods | Frozen French Fries Exporter India</title>
     <!-- SEO -->
     <meta
       name="description"
@@ -17,17 +16,32 @@
       name="keywords"
       content="contact frozen food exporter India, french fries supplier contact, potato products export inquiry, frozen food manufacturer Gujarat, bulk frozen fries export"
     />
-    <meta name="author" content="Funchill Foods LLP" />
+    <meta name="author" content="Funchill Foods" />
     <meta name="robots" content="index, follow" />
 
     <!-- Theme -->
     <meta name="theme-color" content="#0f172a" />
-
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+    default-src 'self';
+    img-src 'self' data: https:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com;
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://unpkg.com;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    frame-src https://www.google.com;
+    connect-src 'self' https://api.emailjs.com https://ipapi.co;
+    upgrade-insecure-requests;
+  "
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <!-- Canonical -->
     <link rel="canonical" href="https://www.funchillfoods.com/contact.html" />
 
     <!-- Favicon -->
-    <link rel="icon" href="img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 
     <!-- Performance -->
@@ -39,12 +53,28 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    />
 
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/contact.css" rel="stylesheet" />
-
+    <link
+      rel="preload"
+      as="image"
+      href="img/header-1.webp"
+      fetchpriority="high"
+      loading="eager"
+    />
     <!-- Icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -54,7 +84,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -105,9 +134,9 @@
         "url": "https://www.funchillfoods.com/",
         "logo": "https://www.funchillfoods.com/img/logo.webp",
         "contactPoint": {
-          "@type": "ContactPage",
+          "@type": "ContactPoint",
           "telephone": "+91-9998113851",
-          "contactType": "customer service",
+          "contactType": "sales",
           "areaServed": "Worldwide",
           "availableLanguage": ["English"]
         },
@@ -133,8 +162,16 @@
   </head>
 
   <body>
+    <!-- ================= PAGE LOADER ================= -->
+    <div id="pageLoader">
+      <div class="loader-wrapper">
+        <div class="loader-ring"></div>
+
+        <img src="img/logo.webp" alt="Funchill Foods" class="loader-logo" />
+      </div>
+    </div>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg custom-navbar">
+    <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
       <div class="container">
         <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -155,7 +192,7 @@
         <div class="collapse navbar-collapse d-none d-lg-flex" id="nav">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-              <a class="nav-link " href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
@@ -187,7 +224,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link " href="index.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -221,7 +258,7 @@
         </div>
 
         <!-- Title -->
-        <h2>Contact Funchill Food</h2>
+        <h2>Contact Funchill Foods</h2>
 
         <!-- Subtitle -->
         <p>
@@ -261,15 +298,16 @@
             </a>
 
             <!-- EMAIL -->
-            <a href="mailto:sales@funchillfood.com" class="hero-item">
+            <a href="mailto:sales@funchillfoods.com" class="hero-item">
               <span>✉</span>
-              <p>sales@funchillfood.com</p>
+              <p>sales@funchillfoods.com</p>
             </a>
 
             <!-- LOCATION -->
             <a
               href="https://www.google.com/maps?q=Meloj,Sidhpur,Patan,Gujarat,India"
               target="_blank"
+              rel="noopener noreferrer"
               class="hero-item"
             >
               <span>📍</span>
@@ -319,19 +357,37 @@
             <form id="contactForm">
               <div class="grid-2">
                 <div class="input-group">
-                  <input type="text" name="name" required />
+                  <input
+                    type="text"
+                    name="name"
+                    pattern="[A-Za-z\s]{3,50}"
+                    autocomplete="name"
+                    required
+                  />
                   <label>Full Name</label>
                 </div>
 
                 <div class="input-group">
-                  <input type="email" id="emailField" name="email" required />
+                  <input
+                    type="email"
+                    id="emailField"
+                    autocomplete="email"
+                    name="email"
+                    required
+                  />
                   <label>Email Address</label>
                 </div>
               </div>
 
               <div class="grid-2">
                 <div class="input-group">
-                  <input type="text" name="company" required />
+                  <input
+                    type="text"
+                    name="company"
+                    minlength="2"
+                    maxlength="80"
+                    required
+                  />
                   <label>Company Name</label>
                 </div>
 
@@ -344,13 +400,20 @@
               <!-- PHONE + QUANTITY -->
               <div class="grid-2">
                 <div class="input-group phone-group">
-                  <input id="phone" type="tel" name="phone" required />
+                  <input
+                    id="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    name="phone"
+                    required
+                  />
                 </div>
 
                 <div class="input-group">
                   <input
                     type="text"
                     name="quantity"
+                    maxlength="30"
                     placeholder="e.g. 5 Tons / 2000 Kg"
                   />
                   <label>Required Quantity</label>
@@ -481,6 +544,7 @@
                 href="https://wa.me/919998113851?text=Hello%20I%20am%20interested%20in%20Frozen%20French%20Fries.%20Please%20share%20details."
                 class="btn-whatsapp"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fab fa-whatsapp"></i> Chat on WhatsApp
               </a>
@@ -573,6 +637,7 @@
             src="img/logo.webp"
             class="footer-logo"
             alt="Funchill Foods Logo"
+            loading="lazy"
           />
 
           <p class="footer-tagline">
@@ -588,10 +653,12 @@
 
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/funchillfood/"
+            <a
+              href="https://www.instagram.com/funchillfood/"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
 
@@ -630,6 +697,7 @@
             <a
               href="https://www.google.com/maps?q=Meloj,Sidhpur,Patan,Gujarat,India"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Meloj, Sidhpur, Patan,<br />
               Gujarat - 384151, India
@@ -658,13 +726,19 @@
       </div>
 
       <div class="footer-bottom">
-        © 2026 <strong>Funchill Foods LLP</strong> | All Rights Reserved
+        © 2026 <strong>Funchill Foods </strong> | All Rights Reserved
         <br />
         Designed & Developed by <strong>Orvinox Technologies</strong>
       </div>
     </footer>
     <!-- WHATSAPP BUTTON -->
-    <a href="https://wa.me/919998113851" target="_blank" class="whatsapp-float">
+    <a
+      href="https://wa.me/919998113851?text=Hello%20Funchill%20Foods,%0A%0AI%20am%20interested%20in%20your%20premium%20frozen%20French%20fries%20and%20potato%20product%20range.%20Please%20share%20your%20product%20catalog,%20packaging%20options,%20pricing,%20and%20export%20details.%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-float"
+      aria-label="Chat with Funchill Foods on WhatsApp"
+    >
       <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -702,8 +776,19 @@
     </div>
 
     <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- AOS -->
+    <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- EmailJS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+    <!-- intlTelInput -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+
+    <!-- Config -->
+    <script defer src="js/script.js"></script>
+    <!-- Main Script -->
     <script src="js/script.js"></script>
 
     <script>
@@ -711,81 +796,13 @@
         duration: 1000,
         once: true,
       });
-    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <script>
-      (function () {
-        emailjs.init("NUvomUIZk4zXC9x9R"); // from EmailJS dashboard
-      })();
-    </script>
-
-    <script>
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const form = this;
-          const btn = form.querySelector("button");
-          const messageBox = document.getElementById("formMessage");
-
-          btn.innerText = "Sending...";
-          btn.disabled = true;
-
-          messageBox.style.display = "none";
-
-          // 1️⃣ Send email to Admin
-          emailjs
-            .sendForm("service_3re8d0b", "template_8rcgnv7", form)
-
-            // 2️⃣ Send auto reply to Customer
-            .then(() => {
-              return emailjs.sendForm(
-                "service_3re8d0b",
-                "template_c5bhrr6",
-                form,
-              );
-            })
-
-            .then(() => {
-              messageBox.innerText =
-                "✅ Thank you! We received your inquiry. Our export team will contact you within 24 hours.";
-
-              messageBox.classList.add("success");
-              messageBox.style.display = "block";
-
-              form.reset();
-
-              btn.innerText = "Get My Export Quote →";
-              btn.disabled = false;
-            })
-
-            .catch((error) => {
-              console.log(error);
-
-              messageBox.innerText =
-                "❌ Something went wrong. Please try again or contact us on WhatsApp.";
-
-              messageBox.classList.add("error");
-              messageBox.style.display = "block";
-
-              btn.innerText = "Get My Export Quote →";
-              btn.disabled = false;
-            });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
-
-    <script>
+      /* PHONE INPUT */
       const phoneInputField = document.querySelector("#phone");
 
       const phoneInput = window.intlTelInput(phoneInputField, {
         initialCountry: "auto",
-
         separateDialCode: true,
-
         autoPlaceholder: "polite",
 
         geoIpLookup: function (callback) {
@@ -802,6 +819,81 @@
         utilsScript:
           "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
       });
+
+      /* FORM SUBMIT */
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const form = this;
+          const btn = form.querySelector('button[type="submit"]');
+          const messageBox = document.getElementById("formMessage");
+
+          messageBox.style.display = "none";
+          messageBox.classList.remove("success", "error");
+
+          /* VALIDATE PHONE */
+          if (!phoneInput.isValidNumber()) {
+            messageBox.innerText = "❌ Please enter valid phone number";
+
+            messageBox.classList.add("error");
+            messageBox.style.display = "block";
+            return;
+          }
+
+          /* GET FULL NUMBER */
+          phoneInputField.value = phoneInput.getNumber();
+
+          btn.innerText = "Sending...";
+          btn.disabled = true;
+
+          /* SEND EMAIL */
+          emailjs
+            .sendForm(
+              EMAILJS_SERVICE_ID,
+              EMAILJS_ADMIN_TEMPLATE,
+              form,
+              EMAILJS_PUBLIC_KEY,
+            )
+
+            /* AUTO REPLY */
+            .then(() => {
+              return emailjs.sendForm(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_REPLY_TEMPLATE,
+                form,
+                EMAILJS_PUBLIC_KEY,
+              );
+            })
+
+            .then(() => {
+              messageBox.innerText = "✅ Thank you! We received your inquiry.";
+
+              messageBox.classList.add("success");
+              messageBox.style.display = "block";
+
+              form.reset();
+
+              phoneInput.setCountry("in");
+
+              btn.innerText = "Get My Export Quote →";
+              btn.disabled = false;
+            })
+
+            .catch((error) => {
+              console.error("EmailJS Error:", error);
+
+              messageBox.innerText =
+                "❌ Something went wrong. Please try again.";
+
+              messageBox.classList.add("error");
+              messageBox.style.display = "block";
+
+              btn.innerText = "Get My Export Quote →";
+              btn.disabled = false;
+            });
+        });
     </script>
   </body>
 </html>

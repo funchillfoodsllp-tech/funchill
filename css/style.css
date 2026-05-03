@@ -23,14 +23,40 @@ body {
   color: var(--text-main);
   line-height: 1.8;
 }
+/* ================= MOBILE TOGGLE PREMIUM FIX ================= */
+
+.navbar-toggler {
+  width: 46px;
+  height: 42px;
+  border: 1.5px solid rgba(255, 122, 0, 0.75);
+  border-radius: 12px;
+  padding: 0;
+  background: linear-gradient(135deg, #ff7a00, #ff3b3b);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(255, 122, 0, 0.35);
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.25);
+}
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.9%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 24px;
+  height: 24px;
+  background-size: 24px 24px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 /* ================= PREMIUM FOOD NAVBAR ================= */
 .custom-navbar {
-  position: sticky;
+  height: 110px;
+  /* FIXED NAVBAR HEIGHT */
+  display: flex;
+  align-items: center;
+  position: relative;
   top: 0;
   z-index: 999;
   padding: 14px 0;
@@ -64,8 +90,10 @@ body.offcanvas-open {
 
 /* ================= LOGO ================= */
 .logo {
-  height: 90px;
-  width: auto;
+  top: 50%;
+  height: 100px;
+  /* BIGGER LOGO */
+  z-index: 10;
   transition: 0.3s;
 }
 
@@ -176,7 +204,8 @@ body.offcanvas-open {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px; /* clean modern spacing */
+  gap: 10px;
+  /* clean modern spacing */
 }
 
 /* LINKS */
@@ -184,7 +213,8 @@ body.offcanvas-open {
   display: block;
   width: 100%;
   padding: 12px 15px;
-  margin: 0; /* remove vertical margin (gap handles spacing) */
+  margin: 0;
+  /* remove vertical margin (gap handles spacing) */
   border-radius: 12px;
   font-weight: 600;
   transition: 0.3s;
@@ -206,7 +236,8 @@ body.offcanvas-open {
   display: block;
   width: 100%;
   text-align: center;
-  margin-top: 12px; /* single spacing rule */
+  margin-top: 12px;
+  /* single spacing rule */
   padding: 12px 18px;
   border-radius: 40px;
 }
@@ -233,33 +264,14 @@ body.offcanvas-open {
 @media (max-width: 768px) {
 
   .logo {
-    height: 60px;
+    height: 80px;
   }
-
   .logo:hover {
     transform: none;
   }
-
   .custom-navbar {
     padding: 8px 0;
-  }
-
-  /* CLEAN TOGGLER */
-  .navbar-toggler {
-    border: none;
-    outline: none;
-    padding: 6px;
-  }
-
-  .navbar-toggler:focus {
-    box-shadow: none;
-  }
-
-  /* ICON SIZE */
-  .navbar-toggler-icon {
-    width: 22px;
-    height: 22px;
-  }
+  } 
 }
 
 
@@ -267,11 +279,22 @@ body.offcanvas-open {
 @media (max-width: 480px) {
 
   .logo {
-    height: 52px;
+    height: 70px;
   }
 
   .custom-navbar {
     padding: 6px 0;
+  }
+   .navbar-toggler {
+    width: 42px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .navbar-toggler-icon {
+    width: 22px;
+    height: 22px;
+    background-size: 22px 22px;
   }
 }
 
@@ -1583,6 +1606,7 @@ body.offcanvas-open {
 
 /* Pulse */
 @keyframes pulseLogo {
+
   0%,
   100% {
     transform: scale(1);
@@ -1594,6 +1618,7 @@ body.offcanvas-open {
     opacity: 0.85;
   }
 }
+
 .loader-wrapper::before {
   content: "";
   position: absolute;

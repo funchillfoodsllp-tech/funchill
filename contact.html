@@ -24,15 +24,14 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="
-    default-src 'self';
-    img-src 'self' data: https:;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com;
-    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://unpkg.com;
-    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-    frame-src https://www.google.com;
-    connect-src 'self' https://api.emailjs.com https://ipapi.co;
-    upgrade-insecure-requests;
-  "
+default-src 'self';
+img-src 'self' data: https:;
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com;
+script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://unpkg.com;
+font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://unpkg.com data:;
+frame-src https://www.google.com;
+connect-src 'self' https://api.emailjs.com https://ipapi.co https://ipwho.is https://www.google-analytics.com https://www.google.com;
+"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -64,6 +63,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.min.css"
+    />
+
+    <!-- preload flags (fix delay) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
@@ -79,10 +86,6 @@
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.min.css"
     />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -258,12 +261,12 @@
         </div>
 
         <!-- Title -->
-        <h2>Contact Funchill Foods</h2>
+        <h2>Start an Export Partnership</h2>
 
         <!-- Subtitle -->
         <p>
-          Partner with a trusted frozen food exporter delivering quality,
-          consistency, and reliable global logistics.
+          Serious about sourcing? Our export team responds to every inquiry
+          within 12–24 hours with pricing, product specs, and sample options.
         </p>
       </div>
     </section>
@@ -273,16 +276,16 @@
 
       <div class="container">
         <div class="hero-content">
-          <p class="eyebrow">GLOBAL EXPORT SOLUTIONS</p>
+          <p class="eyebrow">GLOBAL EXPORT PARTNERSHIPS</p>
 
           <h1>
-            Trusted Frozen Food <br />
-            Export Partner Worldwide
+            Let's Build Your <br />
+            Frozen Food Supply Chain.
           </h1>
 
           <p class="hero-sub">
-            Delivering premium quality frozen food products with global
-            standards, reliable logistics, and long-term partnerships.
+            Inquiry to quote in 24 hours. Samples dispatched within 7 days. Full
+            export documentation included — no gatekeeping for serious buyers.
           </p>
 
           <!-- QUICK CONTACT -->
@@ -336,15 +339,16 @@
             <h2>Request a Business Quote</h2>
 
             <p>
-              Share your requirements and our export team will respond within 24
-              hours with pricing, specifications, and shipping details.
+              Share your requirements and our dedicated export manager will
+              respond within 12–24 hours with pricing, product specifications,
+              and shipping options.
             </p>
 
             <div class="form-points">
-              <div>Fast Response (Within 24 Hours)</div>
-              <div>Export Quality Assurance</div>
-              <div>Customized Packaging</div>
-              <div>Global Shipping Support</div>
+              <div>⚡ Response Within 12–24 Hours</div>
+              <div>❄️ Sample Dispatch in 7 Days</div>
+              <div>📋 Full Export Documentation Included</div>
+              <div>🏷️ Private Label & OEM Available</div>
             </div>
 
             <a href="https://wa.me/919998113851" class="whatsapp-btn">
@@ -399,12 +403,13 @@
 
               <!-- PHONE + QUANTITY -->
               <div class="grid-2">
+                <!-- PHONE FIELD -->
                 <div class="input-group phone-group">
                   <input
                     id="phone"
                     type="tel"
-                    autocomplete="tel"
                     name="phone"
+                    class="form-control"
                     required
                   />
                 </div>
@@ -473,14 +478,14 @@
 
     <section class="global-presence">
       <div class="container">
-        <p class="eyebrow">GLOBAL NETWORK</p>
+        <p class="eyebrow">ACTIVE EXPORT MARKETS</p>
 
-        <h2>Supplying to <span>International Markets</span></h2>
+        <h2>Supplying to <span>25+ International Markets</span></h2>
 
         <p class="global-sub">
-          We proudly export frozen food products across the globe with
-          consistent quality, advanced cold-chain logistics, and reliable
-          delivery systems.
+          From reefer containers departing Gujarat to kitchen lines in the Gulf,
+          South East Asia, Europe, and Africa — Funchill delivers premium frozen
+          products with full cold-chain integrity.
         </p>
 
         <!-- 🌍 COUNTRIES -->
@@ -508,8 +513,8 @@
           </div>
 
           <div class="stat">
-            <h3>99%</h3>
-            <p>On-Time Delivery</p>
+            <h3>12–24h</h3>
+            <p>Inquiry Response Time</p>
           </div>
         </div>
       </div>
@@ -592,34 +597,6 @@
             <div class="cta-urgency">
               <p>🚀 Limited slots for new export partnerships this month</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-map">
-      <div class="container">
-        <div class="map-wrapper">
-          <!-- TEXT (OPTIONAL) -->
-          <div class="map-content">
-            <p class="eyebrow">OUR LOCATION</p>
-            <h2>Visit Our Facility</h2>
-            <p>
-              Located in Gujarat, India — our facility supports global export
-              operations with advanced cold storage and logistics.
-            </p>
-          </div>
-
-          <!-- MAP -->
-          <div class="map-box">
-            <iframe
-              src="https://www.google.com/maps?q=Meloj,Sidhpur,Patan,Gujarat,India&output=embed"
-              width="100%"
-              height="100%"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe>
           </div>
         </div>
       </div>
@@ -776,124 +753,114 @@
     </div>
 
     <!-- JS -->
-    <!-- AOS -->
-    <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <!-- EmailJS -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-    ></script>
-    <!-- intlTelInput -->
+    <!-- JS LIBRARIES -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"></script>
 
-    <!-- Config -->
+    <!-- MAIN SCRIPT -->
     <script defer src="js/script.js"></script>
-    <!-- Main Script -->
-    <script src="js/script.js"></script>
-
+    <script defer src="js/config.js"></script>
     <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-
-      /* PHONE INPUT */
-      const phoneInputField = document.querySelector("#phone");
-
-      const phoneInput = window.intlTelInput(phoneInputField, {
-        initialCountry: "auto",
-        separateDialCode: true,
-        autoPlaceholder: "polite",
-
-        geoIpLookup: function (callback) {
-          fetch("https://ipapi.co/json")
-            .then((res) => res.json())
-            .then((data) => {
-              callback(data.country_code);
-            })
-            .catch(() => {
-              callback("in");
-            });
-        },
-
-        utilsScript:
-          "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-      });
-
-      /* FORM SUBMIT */
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const form = this;
-          const btn = form.querySelector('button[type="submit"]');
-          const messageBox = document.getElementById("formMessage");
-
-          messageBox.style.display = "none";
-          messageBox.classList.remove("success", "error");
-
-          /* VALIDATE PHONE */
-          if (!phoneInput.isValidNumber()) {
-            messageBox.innerText = "❌ Please enter valid phone number";
-
-            messageBox.classList.add("error");
-            messageBox.style.display = "block";
-            return;
-          }
-
-          /* GET FULL NUMBER */
-          phoneInputField.value = phoneInput.getNumber();
-
-          btn.innerText = "Sending...";
-          btn.disabled = true;
-
-          /* SEND EMAIL */
-          emailjs
-            .sendForm(
-              EMAILJS_SERVICE_ID,
-              EMAILJS_ADMIN_TEMPLATE,
-              form,
-              EMAILJS_PUBLIC_KEY,
-            )
-
-            /* AUTO REPLY */
-            .then(() => {
-              return emailjs.sendForm(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_REPLY_TEMPLATE,
-                form,
-                EMAILJS_PUBLIC_KEY,
-              );
-            })
-
-            .then(() => {
-              messageBox.innerText = "✅ Thank you! We received your inquiry.";
-
-              messageBox.classList.add("success");
-              messageBox.style.display = "block";
-
-              form.reset();
-
-              phoneInput.setCountry("in");
-
-              btn.innerText = "Get My Export Quote →";
-              btn.disabled = false;
-            })
-
-            .catch((error) => {
-              console.error("EmailJS Error:", error);
-
-              messageBox.innerText =
-                "❌ Something went wrong. Please try again.";
-
-              messageBox.classList.add("error");
-              messageBox.style.display = "block";
-
-              btn.innerText = "Get My Export Quote →";
-              btn.disabled = false;
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        // AOS INIT
+        AOS.init({
+          duration: 1000,
+          once: true,
         });
+
+        // EMAILJS INIT
+        (function () {
+          emailjs.init("YOUR_PUBLIC_KEY"); // replace this
+        })();
+
+        // LOADER FIX
+        window.addEventListener("load", () => {
+          const loader = document.getElementById("pageLoader");
+          if (loader) loader.style.display = "none";
+        });
+
+        // SOURCE TRACKING
+        const sourceField = document.getElementById("sourceField");
+        if (sourceField) {
+          sourceField.value = window.location.href || "direct";
+        }
+
+        // ================= PHONE INPUT =================
+        const phoneInputField = document.querySelector("#phone");
+
+        // detect country from browser (NO API = no CSP error)
+        const userLang = navigator.language || "en-IN";
+        const countryCode = userLang.split("-")[1]?.toLowerCase() || "in";
+
+        const phoneInput = window.intlTelInput(phoneInputField, {
+          initialCountry: countryCode,
+          separateDialCode: true,
+          autoPlaceholder: "polite",
+          utilsScript:
+            "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+        });
+
+        // ================= FORM SUBMIT =================
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const form = this;
+            const btn = form.querySelector("button[type='submit']");
+            const messageBox = document.getElementById("formMessage");
+
+            messageBox.style.display = "none";
+
+            if (!phoneInput.isValidNumber()) {
+              messageBox.innerText = "❌ Please enter valid phone number";
+              messageBox.className = "form-message error";
+              messageBox.style.display = "block";
+              return;
+            }
+
+            // format number
+            phoneInputField.value = phoneInput.getNumber();
+
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            emailjs
+              .sendForm(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE, form)
+              .then(() => {
+                return emailjs.sendForm(
+                  EMAILJS_SERVICE_ID,
+                  EMAILJS_REPLY_TEMPLATE,
+                  form,
+                );
+              })
+              .then(() => {
+                messageBox.innerText = "✅ Inquiry sent successfully!";
+                messageBox.className = "form-message success";
+                messageBox.style.display = "block";
+
+                form.reset();
+                phoneInput.setCountry("in");
+
+                btn.innerText = "Get My Export Quote →";
+                btn.disabled = false;
+              })
+              .catch((error) => {
+                console.error(error);
+
+                messageBox.innerText = "❌ Error sending message.";
+                messageBox.className = "form-message error";
+                messageBox.style.display = "block";
+
+                btn.innerText = "Get My Export Quote →";
+                btn.disabled = false;
+              });
+          });
+      });
     </script>
   </body>
 </html>

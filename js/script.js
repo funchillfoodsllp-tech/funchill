@@ -165,3 +165,15 @@ if (navCollapse) {
     document.body.classList.remove("offcanvas-open");
   });
 }
+
+/* ================= PAGE LOADER ================= */
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
+
+  setTimeout(() => {
+    loader.classList.add("hide");
+  }, 500);
+});
+
+

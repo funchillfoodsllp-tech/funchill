@@ -764,32 +764,67 @@ connect-src 'self' https://api.emailjs.com https://ipapi.co https://ipwho.is htt
     <!-- JS -->
     <!-- JS LIBRARIES -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"></script>
 
-    <!-- MAIN SCRIPT -->
+    <!-- CONFIG FIRST, THEN MAIN SCRIPT -->
+    <script src="js/config.js"></script>
     <script defer src="js/script.js"></script>
-    <script defer src="js/config.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // AOS INIT
-        AOS.init({
-          duration: 1000,
-          once: true,
-        });
+        if (typeof AOS !== "undefined") {
+          AOS.init({
+            duration: 1000,
+            once: true,
+          });
+        }
 
-        // EMAILJS INIT
-        (function () {
-          emailjs.init("YOUR_PUBLIC_KEY"); // replace this
-        })();
-
-        // LOADER FIX
-        window.addEventListener("load", () => {
+        // PAGE LOADER FIX
+        const hideLoader = () => {
           const loader = document.getElementById("pageLoader");
           if (loader) loader.style.display = "none";
+        };
+
+        if (document.readyState === "complete") {
+          hideLoader();
+        } else {
+          window.addEventListener("load", hideLoader);
+          setTimeout(hideLoader, 2500);
+        }
+
+        // CHECK EMAILJS
+        const messageBox = document.getElementById("formMessage");
+
+        function showFormMessage(text, type) {
+          if (!messageBox) return;
+          messageBox.innerText = text;
+          messageBox.className = "form-message " + type;
+          messageBox.style.display = "block";
+        }
+
+        if (typeof emailjs === "undefined") {
+          console.error("EmailJS library not loaded.");
+          showFormMessage("❌ Email service not loaded. Please refresh the page.", "error");
+          return;
+        }
+
+        if (
+          typeof EMAILJS_PUBLIC_KEY === "undefined" ||
+          typeof EMAILJS_SERVICE_ID === "undefined" ||
+          typeof EMAILJS_ADMIN_TEMPLATE === "undefined" ||
+          typeof EMAILJS_REPLY_TEMPLATE === "undefined"
+        ) {
+          console.error("EmailJS config missing. Check js/config.js");
+          showFormMessage("❌ Email configuration missing. Please check config.js.", "error");
+          return;
+        }
+
+        // INIT EMAILJS ONLY ONCE WITH REAL PUBLIC KEY
+        emailjs.init({
+          publicKey: EMAILJS_PUBLIC_KEY,
         });
 
         // SOURCE TRACKING
@@ -798,78 +833,110 @@ connect-src 'self' https://api.emailjs.com https://ipapi.co https://ipwho.is htt
           sourceField.value = window.location.href || "direct";
         }
 
-        // ================= PHONE INPUT =================
+        // PHONE INPUT
         const phoneInputField = document.querySelector("#phone");
+        let phoneInput = null;
 
-        // detect country from browser (NO API = no CSP error)
-        const userLang = navigator.language || "en-IN";
-        const countryCode = userLang.split("-")[1]?.toLowerCase() || "in";
+        if (phoneInputField && typeof window.intlTelInput !== "undefined") {
+          const userLang = navigator.language || "en-IN";
+          const countryCode = userLang.split("-")[1]?.toLowerCase() || "in";
 
-        const phoneInput = window.intlTelInput(phoneInputField, {
-          initialCountry: countryCode,
-          separateDialCode: true,
-          autoPlaceholder: "polite",
-          utilsScript:
-            "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-        });
+          phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: countryCode,
+            separateDialCode: true,
+            autoPlaceholder: "polite",
+            utilsScript:
+              "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+          });
+        }
 
-        // ================= FORM SUBMIT =================
-        document
-          .getElementById("contactForm")
-          .addEventListener("submit", function (e) {
-            e.preventDefault();
+        // FORM SUBMIT
+        const contactForm = document.getElementById("contactForm");
+        if (!contactForm) {
+          console.error("Contact form not found.");
+          return;
+        }
 
-            const form = this;
-            const btn = form.querySelector("button[type='submit']");
-            const messageBox = document.getElementById("formMessage");
+        contactForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
 
+          const form = this;
+          const btn = form.querySelector("button[type='submit']");
+
+          if (messageBox) {
             messageBox.style.display = "none";
+            messageBox.innerText = "";
+            messageBox.className = "form-message";
+          }
 
-            if (!phoneInput.isValidNumber()) {
-              messageBox.innerText = "❌ Please enter valid phone number";
-              messageBox.className = "form-message error";
-              messageBox.style.display = "block";
-              return;
-            }
+          if (phoneInput && !phoneInput.isValidNumber()) {
+            showFormMessage("❌ Please enter a valid phone number.", "error");
+            return;
+          }
 
-            // format number
+          if (phoneInput && phoneInputField) {
             phoneInputField.value = phoneInput.getNumber();
+          }
 
+          if (btn) {
             btn.innerText = "Sending...";
             btn.disabled = true;
+          }
 
-            emailjs
-              .sendForm(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE, form)
-              .then(() => {
-                return emailjs.sendForm(
-                  EMAILJS_SERVICE_ID,
-                  EMAILJS_REPLY_TEMPLATE,
-                  form,
-                );
-              })
-              .then(() => {
-                messageBox.innerText = "✅ Inquiry sent successfully!";
-                messageBox.className = "form-message success";
-                messageBox.style.display = "block";
+          try {
+            // 1) Send inquiry to admin/team
+            const adminResponse = await emailjs.sendForm(
+              EMAILJS_SERVICE_ID,
+              EMAILJS_ADMIN_TEMPLATE,
+              form
+            );
 
-                form.reset();
-                phoneInput.setCountry("in");
+            console.log("Admin email sent:", adminResponse.status, adminResponse.text);
 
-                btn.innerText = "Get My Export Quote →";
-                btn.disabled = false;
-              })
-              .catch((error) => {
-                console.error(error);
+            // EmailJS allows 1 request per second, so wait before auto-reply
+            await new Promise((resolve) => setTimeout(resolve, 1200));
 
-                messageBox.innerText = "❌ Error sending message.";
-                messageBox.className = "form-message error";
-                messageBox.style.display = "block";
+            // 2) Send auto-reply to customer
+            try {
+              const replyResponse = await emailjs.sendForm(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_REPLY_TEMPLATE,
+                form
+              );
 
-                btn.innerText = "Get My Export Quote →";
-                btn.disabled = false;
-              });
-          });
+              console.log("Auto reply sent:", replyResponse.status, replyResponse.text);
+            } catch (replyError) {
+              console.warn("Admin inquiry sent, but auto-reply failed:", replyError);
+            }
+
+            showFormMessage("✅ Inquiry sent successfully! Our team will contact you soon.", "success");
+
+            form.reset();
+            if (phoneInput) phoneInput.setCountry("in");
+            if (sourceField) sourceField.value = window.location.href || "direct";
+          } catch (error) {
+            console.error("EmailJS Error:", error);
+
+            let errorText = "❌ Message not sent. Please try again or contact us on WhatsApp.";
+
+            if (error && error.status === 400) {
+              errorText = "❌ EmailJS setup issue. Please check Service ID, Template ID, and template variables.";
+            } else if (error && error.status === 403) {
+              errorText = "❌ EmailJS domain/key issue. Please check Public Key and allowed domain.";
+            } else if (error && error.status === 429) {
+              errorText = "❌ Too many requests. Please wait a few seconds and try again.";
+            }
+
+            showFormMessage(errorText, "error");
+          } finally {
+            if (btn) {
+              btn.innerText = "Get My Export Quote →";
+              btn.disabled = false;
+            }
+          }
+        });
       });
     </script>
+
   </body>
 </html>

@@ -23,6 +23,30 @@ body {
   color: var(--text-main);
   line-height: 1.8;
 }
+/* ================= RESPONSIVE SAFETY RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
 /* ================= MOBILE TOGGLE PREMIUM FIX ================= */
 
 .navbar-toggler {
@@ -52,26 +76,29 @@ body {
 
 /* ================= PREMIUM FOOD NAVBAR ================= */
 .custom-navbar {
-  height: 110px;
-  /* FIXED NAVBAR HEIGHT */
+  min-height: 96px;
   display: flex;
   align-items: center;
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 999;
-  padding: 14px 0;
-  /* FOOD GRADIENT GLASS */
-  background: linear-gradient(135deg,
-      rgba(255, 247, 237, 0.85),
-      rgba(255, 237, 213, 0.85));
+  padding: 10px 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 247, 237, 0.88),
+    rgba(255, 237, 213, 0.88)
+  );
+
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+
   border-bottom: 1px solid rgba(255, 122, 0, 0.15);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  will-change: transform;
-  transition: transform 0.4s ease, background 0.4s ease;
-}
 
+  will-change: transform;
+  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
 body.offcanvas-open {
   overflow: hidden;
 }
@@ -90,11 +117,12 @@ body.offcanvas-open {
 
 /* ================= LOGO ================= */
 .logo {
-  top: 50%;
-  height: 100px;
-  /* BIGGER LOGO */
+  height: 86px;
+  max-width: 190px;
+  object-fit: contain;
+  display: block;
   z-index: 10;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .logo:hover {
@@ -242,59 +270,85 @@ body.offcanvas-open {
   border-radius: 40px;
 }
 
-/* ===== TABLET (≤ 992px) ===== */
-@media (max-width: 992px) {
-
-  .logo {
-    height: 70px;
-  }
-
+/* ===== TABLET / MOBILE NAVBAR FIX ===== */
+@media (max-width: 991.98px) {
   .custom-navbar {
-    padding: 10px 0;
+    min-height: 76px;
+    padding: 8px 12px;
   }
 
-  /* REMOVE OLD COLLAPSE STYLE */
-  .navbar-collapse {
-    display: none !important;
+  .logo,
+  .navbar-brand img {
+    height: 58px;
+    max-height: 58px;
+    max-width: 155px;
+    object-fit: contain;
   }
-}
 
-
-/* ===== MOBILE (≤ 768px) ===== */
-@media (max-width: 768px) {
-
-  .logo {
-    height: 80px;
-  }
   .logo:hover {
     transform: none;
   }
-  .custom-navbar {
-    padding: 8px 0;
-  } 
-}
 
-
-/* ===== SMALL MOBILE (≤ 480px) ===== */
-@media (max-width: 480px) {
-
-  .logo {
-    height: 70px;
+  .navbar-collapse {
+    display: none !important;
   }
 
-  .custom-navbar {
-    padding: 6px 0;
-  }
-   .navbar-toggler {
-    width: 42px;
-    height: 38px;
-    border-radius: 10px;
+  .navbar-toggler {
+    width: 44px;
+    height: 40px;
+    border-radius: 11px;
+    flex-shrink: 0;
   }
 
   .navbar-toggler-icon {
     width: 22px;
     height: 22px;
     background-size: 22px 22px;
+  }
+
+  .offcanvas {
+    width: min(82vw, 300px);
+  }
+
+  .offcanvas-body {
+    padding: 18px;
+  }
+
+  .offcanvas .nav-link {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  .offcanvas .btn-quote {
+    width: 100%;
+    margin-top: 14px;
+  }
+}
+
+/* ===== SMALL MOBILE NAVBAR FIX ===== */
+@media (max-width: 480px) {
+  .custom-navbar {
+    min-height: 68px;
+    padding: 7px 10px;
+  }
+
+  .logo,
+  .navbar-brand img {
+    height: 50px;
+    max-height: 50px;
+    max-width: 135px;
+  }
+
+  .navbar-toggler {
+    width: 40px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .navbar-toggler-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
   }
 }
 
@@ -1534,15 +1588,38 @@ body.offcanvas-open {
 
 /* ===== FLOAT BUTTONS MOBILE FIX ===== */
 @media (max-width: 768px) {
+  .whatsapp-float,
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+    right: 14px;
+  }
 
   .whatsapp-float {
-    bottom: 85px;
-    right: 15px;
+    bottom: 78px;
+    font-size: 23px;
   }
 
   .back-to-top {
-    bottom: 20px;
-    right: 15px;
+    bottom: 18px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .whatsapp-float,
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+    right: 10px;
+  }
+
+  .whatsapp-float {
+    bottom: 72px;
+  }
+
+  .back-to-top {
+    bottom: 16px;
   }
 }
 

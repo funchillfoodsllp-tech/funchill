@@ -2305,332 +2305,258 @@ MOBILE RESPONSIVE
 /* =========================================
    EXPORT SECTION (LIGHT PREMIUM STYLE)
 ========================================= */
+/* ================= EXPORT MAP RESPONSIVE FINAL ================= */
+
 .export-section {
   position: relative;
-  padding: 40px 0;
-  background: linear-gradient(135deg, #fff8f0 0%, #f7e6d0 100%);
+  padding: 90px 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fffaf5 0%, #fff2df 100%);
+}
+
+.map-title {
+  max-width: 760px;
+  margin: 0 auto 45px;
+}
+
+.map-title h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #3b1f0f;
+  margin-bottom: 12px;
+}
+
+.map-title p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #7a5a3a;
+}
+
+/* Outer premium card */
+.map-scroll-wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 247, 237, 0.95),
+    rgba(255, 237, 213, 0.85)
+  );
+  border: 1px solid rgba(255, 122, 0, 0.18);
+  box-shadow: 0 25px 70px rgba(255, 122, 0, 0.16);
   overflow: hidden;
 }
 
-/* SOFT GLOW BACKGROUND */
-.export-section::before,
-.export-section::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-}
-
-.export-section::before {
-  width: 350px;
-  height: 350px;
-  background: rgba(255, 122, 0, 0.25);
-  top: -120px;
-  left: -120px;
-}
-
-.export-section::after {
-  width: 300px;
-  height: 300px;
-  background: rgba(255, 160, 60, 0.2);
-  bottom: -100px;
-  right: -100px;
-}
-
-/* CONTENT ABOVE BACKGROUND */
-.export-section .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* MAP TITLE */
-.map-title {
-  margin-bottom: 20px;
-}
-
-/* SMALL TOP LABEL (optional if you add later) */
-.map-title span {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ff7a00;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-/* MAIN HEADING */
-.map-title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  color: #0b2c5f;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-/* GRADIENT TEXT EFFECT (premium look) */
-.map-title h2 {
-  background: linear-gradient(90deg, #0b2c5f, #ff7a00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* SUBTEXT */
-.map-title p {
-  font-size: 14px;
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* CENTER DECORATION LINE */
-.map-title::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #ff7a00, #ffb347);
-  margin: 18px auto 0;
-  border-radius: 10px;
-}
-
-/* =========================================
-   MAP CONTAINER
-========================================= */
+/* Map area */
 .map-container {
   position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  min-height: 260px;
-  /* ✅ IMPORTANT FIX */
-  aspect-ratio: 16 / 9;
-  /* adjust if your map image ratio differs */
   width: 100%;
+  aspect-ratio: 1000 / 562;
+  margin: 0 auto;
 }
 
-/* Make image fully fill container */
 .world-map {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: contain;
-  /* keeps map proportions */
-  opacity: 0.6;
-  filter: grayscale(100%) brightness(0.75);
+  filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.16));
 }
 
-/* =========================================
-   PINS (DARK STYLE)
-========================================= */
+/* Common pin style */
 .pin {
   position: absolute;
+  left: var(--x);
+  top: var(--y);
   transform: translate(-50%, -50%);
-  text-align: center;
-  cursor: pointer;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-/* DARK PIN DOT */
 .pin span {
-  width: 12px;
-  height: 12px;
-  background: #111;
-  /* DARK PIN */
-  border-radius: 50%;
+  width: 15px;
+  height: 15px;
   display: block;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff7a00, #ff3b3b);
+  border: 2px solid #ffffff;
   box-shadow:
-    0 0 0 4px rgba(0, 0, 0, 0.15),
-    0 0 10px rgba(0, 0, 0, 0.3);
-  animation: pulseDark 2s infinite;
+    0 0 0 5px rgba(255, 122, 0, 0.22),
+    0 8px 18px rgba(255, 59, 59, 0.45);
+  position: relative;
 }
 
-/* LABEL */
+.pin span::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 122, 0, 0.55);
+  animation: mapPulse 1.8s infinite;
+}
+
 .pin p {
-  margin-top: 6px;
-  font-size: 11px;
-  color: #111;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 4px 10px;
-  border-radius: 20px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: 0.3s;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #3b1f0f;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 122, 0, 0.25);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
-/* SHOW LABEL ON HOVER */
-.pin:hover p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.india span {
-  background: #ff7a00;
-}
-
-/* =========================================
-   PIN POSITIONS (ALIGNED)
-========================================= */
-
-/* INDIA (MAIN HUB) */
-.india {
-  top: 51.5%;
-  left: 66%;
-}
-
-/* USA */
-.usa {
-  top: 42%;
-  left: 21.5%;
-}
-
-/* UK */
-.uk {
-  top: 36.5%;
-  left: 45%;
-}
-
-/* GERMANY */
-.germany {
-  top: 39%;
-  left: 54%;
-}
-
-/* UAE */
-.uae {
-  top: 49.5%;
-  left: 61%;
-}
-
-/* SAUDI */
-.saudi {
-  top: 48%;
-  left: 57.5%;
-}
-
-/* SOUTH AFRICA */
-.africa {
-  top: 60%;
-  left: 53%;
-}
-
-/* AUSTRALIA */
-.australia {
-  top: 69%;
-  left: 81.5%;
-}
-
-/* =========================================
-   DARK PULSE ANIMATION
-========================================= */
-@keyframes pulseDark {
+@keyframes mapPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+    transform: scale(0.7);
+    opacity: 0.8;
   }
 
   70% {
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    transform: scale(1.45);
+    opacity: 0;
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transform: scale(0.7);
+    opacity: 0;
   }
 }
 
+/* Country pin positions */
+.pin.usa {
+  --x: 25.5%;
+  --y: 39%;
+}
 
-/* ================= TABLET (≤ 992px) ================= */
-@media (max-width: 992px) {
+.pin.uk {
+  --x: 48.2%;
+  --y: 34.5%;
+}
 
+.pin.germany {
+  --x: 56.2%;
+  --y: 37.5%;
+}
+
+.pin.uae {
+  --x: 61.7%;
+  --y: 45.5%;
+}
+
+.pin.saudi {
+  --x: 59.7%;
+  --y: 42.5%;
+}
+
+.pin.india {
+  --x: 67.4%;
+  --y: 48.8%;
+}
+
+.pin.africa {
+  --x: 52.8%;
+  --y: 61.5%;
+}
+
+.pin.australia {
+  --x: 83.5%;
+  --y: 65.5%;
+}
+
+/* ================= MOBILE MAP FIX ================= */
+
+@media (max-width: 768px) {
+  .export-section {
+    padding: 70px 0;
+  }
+
+  .map-title {
+    padding: 0 14px;
+    margin-bottom: 28px;
+  }
+
+  .map-title h2 {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .map-title p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .map-scroll-wrap {
+    max-width: 100%;
+    padding: 14px;
+    border-radius: 22px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .map-scroll-wrap::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .map-scroll-wrap::-webkit-scrollbar-track {
+    background: rgba(255, 122, 0, 0.12);
+    border-radius: 20px;
+  }
+
+  .map-scroll-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 122, 0, 0.55);
+    border-radius: 20px;
+  }
+
+  .map-container {
+    width: 680px;
+    min-width: 680px;
+  }
+
+  .pin span {
+    width: 13px;
+    height: 13px;
+  }
+
+  .pin p {
+    font-size: 10.5px;
+    padding: 4px 7px;
+  }
+}
+
+@media (max-width: 480px) {
   .export-section {
     padding: 60px 0;
   }
 
   .map-title h2 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .map-title p {
     font-size: 13px;
   }
 
-  .map-container {
-    max-width: 700px;
+  .map-scroll-wrap {
+    padding: 10px;
+    border-radius: 18px;
   }
 
-  /* Slightly bigger pins */
-  .pin span {
-    width: 10px;
-    height: 10px;
+  .map-container {
+    width: 620px;
+    min-width: 620px;
   }
 
   .pin p {
     font-size: 10px;
   }
-}
-
-@media (max-width: 768px) {
-  .map-container {
-    aspect-ratio: 4 / 3;
-    min-height: 300px;
-  }
-}
-
-/* ================= MOBILE (≤ 576px) ================= */
-@media (max-width: 576px) {
-
-  .export-section {
-    padding: 50px 15px;
-  }
-
-  /* 🔥 REMOVE HEAVY GLOW */
-  .export-section::before,
-  .export-section::after {
-    display: none;
-  }
-
-  /* TITLE */
-  .map-title h2 {
-    font-size: 22px;
-    line-height: 1.3;
-  }
-
-  .map-title p {
-    font-size: 12px;
-  }
-
-  /* MAP */
-  .map-container {
-    max-width: 100%;
-    transform: none;
-    min-height: 260px;
-
-  }
-
-  .world-map {
-    opacity: 0.5;
-  }
-
-  /* 🔥 PINS SMALL + CLEAN */
-  .pin span {
-    width: 8px;
-    height: 8px;
-  }
-
-  /* 🔥 ALWAYS SHOW LABEL (better UX than hover) */
-  .pin p {
-    opacity: 1;
-    transform: translateY(0);
-    font-size: 9px;
-    padding: 3px 6px;
-    white-space: nowrap;
-  }
-
-  /* 🔥 OPTIONAL: REDUCE CLUTTER (KEEP ONLY MAIN MARKETS) */
-  .uk,
-  .germany,
-  .saudi {
-    display: none;
-  }
-
 }

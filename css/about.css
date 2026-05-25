@@ -1,11 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
+.about-page {
   background: #f7ead9;
 }
 
@@ -198,7 +191,7 @@ body {
 }
 
 /* PRIMARY BUTTON */
-.btn-primary {
+.about-page .about-hero .btn-primary {
   background: linear-gradient(90deg, #ff7a00, #ff3b3b);
   padding: 15px 30px;
   border-radius: 50px;
@@ -211,7 +204,7 @@ body {
 }
 
 /* glowing hover */
-.btn-primary:hover {
+.about-page .about-hero .btn-primary:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 15px 40px rgba(255, 122, 0, 0.6);
 }
@@ -258,7 +251,10 @@ body {
 @media (max-width: 1024px) {
   .about-hero {
     padding: 100px 6% 50px;
-    background-image: url('/img/about-mobile.webp') no-repeat center top / cover;
+    background-image: url('/img/about-mobile.webp');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
   }
 
   .about-content {
@@ -286,7 +282,10 @@ body {
     padding: 90px 5% 40px;
     text-align: center;
     justify-content: center;
-    background-image: url('/img/about-mobile.webp') no-repeat center top / cover;
+    background-image: url('/img/about-mobile.webp');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
   }
 
   .about-overlay {
@@ -409,7 +408,7 @@ body {
    STORY SECTION BASE
    Premium gradient + soft animated background
 ========================================= */
-.container {
+.about-page .about-section .container {
   width: min(90%, 1200px);
   margin: auto;
   position: relative;
@@ -457,7 +456,7 @@ body {
 }
 
 /* ================= GRID ================= */
-.grid-2 {
+.about-page .grid-2 {
   display: flex;
   align-items: center;
   gap: 60px;
@@ -612,7 +611,7 @@ body {
     padding: 80px 0;
   }
 
-  .grid-2 {
+  .about-page .grid-2 {
     gap: 40px;
   }
 
@@ -631,7 +630,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .grid-2 {
+  .about-page .grid-2 {
     flex-direction: column;
     gap: 35px;
   }
@@ -676,7 +675,7 @@ body {
     padding: 60px 0;
   }
 
-  .container {
+  .about-page .about-section .container {
     width: 92%;
   }
 
@@ -795,7 +794,7 @@ body {
 }
 
 /* CARD DESIGN */
-.card {
+.about-page .philosophy-section .card {
   position: relative;
   background: linear-gradient(180deg, #ffffff, #fffaf5);
   border-radius: 20px;
@@ -810,7 +809,7 @@ body {
 }
 
 /* premium hover */
-.card:hover {
+.about-page .philosophy-section .card:hover {
   transform: translateY(-12px) scale(1.01);
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.12),
@@ -855,14 +854,14 @@ body {
 }
 
 /* ================= TEXT ================= */
-.card h3 {
+.about-page .philosophy-section .card h3 {
   font-size: 20px;
   margin-bottom: 10px;
   color: #1f140c;
 
 }
 
-.card p {
+.about-page .philosophy-section .card p {
   font-size: 14.5px;
   color: #5c4b3c;
   line-height: 1.7;
@@ -925,7 +924,7 @@ body {
     padding: 60px 0;
   }
 
-  .container {
+  .about-page .philosophy-section .container {
     width: 92%;
   }
 
@@ -1022,7 +1021,7 @@ body {
 }
 
 /* ================= GRID ================= */
-.infra-section .grid-2 {
+.infra-section .about-page .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -1163,7 +1162,7 @@ body {
     padding: 100px 0;
   }
 
-  .infra-section .grid-2 {
+  .infra-section .about-page .grid-2 {
     gap: 50px;
   }
 
@@ -1192,7 +1191,7 @@ body {
     gap: 40px;
   }
 
-  .infra-section .grid-2 {
+  .infra-section .about-page .grid-2 {
     grid-template-columns: 1fr;
   }
 
@@ -1229,7 +1228,7 @@ body {
     padding: 60px 0;
   }
 
-  .container {
+  .about-page .infra-section .container {
     width: 92%;
   }
 
@@ -1444,7 +1443,7 @@ body {
     padding: 60px 0;
   }
 
-  .container {
+  .about-page .quality-section .container {
     width: 92%;
   }
 
@@ -1689,7 +1688,7 @@ body {
     padding: 60px 0;
   }
 
-  .container {
+  .about-page .packaging-section .container {
     width: 92%;
   }
 
@@ -1775,7 +1774,7 @@ body {
 }
 
 /* ================= GRID ================= */
-.export-logistics-section .grid-2 {
+.export-logistics-section .about-page .grid-2 {
   display: flex;
   align-items: center;
   gap: 80px;
@@ -1887,7 +1886,7 @@ body {
     padding: 100px 0;
   }
 
-  .export-logistics-section .grid-2 {
+  .export-logistics-section .about-page .grid-2 {
     gap: 50px;
   }
 
@@ -1902,7 +1901,7 @@ body {
 
 /* 📱 768px ↓ (STACK LAYOUT) */
 @media (max-width: 768px) {
-  .export-logistics-section .grid-2 {
+  .export-logistics-section .about-page .grid-2 {
     flex-direction: column;
     gap: 40px;
   }
@@ -1930,7 +1929,7 @@ body {
     padding: 60px 0;
   }
 
-  .container {
+  .about-page .export-logistics-section .container {
     width: 92%;
   }
 
@@ -2145,8 +2144,11 @@ body {
     padding: 60px 0;
   }
 
-  .container {
-    width: 92%;
+  .about-page .global-vision-section .container {
+    width: min(90%, 1200px);
+    margin: auto;
+    position: relative;
+    z-index: 2;
   }
 
   .global-vision-section .center h2 {

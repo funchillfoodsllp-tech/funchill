@@ -982,9 +982,21 @@
   }
 }
 
-/* ================= INFRA SECTION ================= */
+/* =========================================================
+   INFRASTRUCTURE SECTION - PREMIUM IMAGE UPDATE
+   HTML Supported:
+   <section class="infra-section">
+     <div class="container">
+       <div class="grid-2 reverse">
+         <div class="section-img">...</div>
+         <div class="text">...</div>
+       </div>
+     </div>
+   </section>
+========================================================= */
+
 .infra-section {
-  padding: 130px 0;
+  padding: 120px 0;
   position: relative;
   overflow: hidden;
   margin-top: -20px;
@@ -1002,9 +1014,9 @@
   right: -120px;
   width: 420px;
   height: 420px;
-
   background: radial-gradient(circle, rgba(0, 119, 255, 0.15), transparent 70%);
   filter: blur(120px);
+  pointer-events: none;
 }
 
 /* bottom depth */
@@ -1015,102 +1027,108 @@
   left: -150px;
   width: 400px;
   height: 400px;
-
   background: radial-gradient(circle, rgba(0, 0, 0, 0.08), transparent 70%);
   filter: blur(120px);
+  pointer-events: none;
+}
+
+.infra-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 /* ================= GRID ================= */
-.infra-section .about-page .grid-2 {
+
+.infra-section .grid-2,
+.infra-section .container .grid-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 75px;
 }
 
-.infra-section .grid-2.reverse {
-  flex-direction: row-reverse;
+/* Your HTML has image first and text second.
+   This keeps text on left and image on right. */
+.infra-section .grid-2.reverse .text {
+  order: 1;
 }
 
-/* ================= IMAGE ================= */
+.infra-section .grid-2.reverse .section-img {
+  order: 2;
+}
+
+/* ================= IMAGE BIG PREMIUM ================= */
+
 .infra-section .section-img {
   position: relative;
-  isolation: isolate;
-  flex: 1;
+  width: 100%;
+  min-height: 520px;
   border-radius: 28px;
+  isolation: isolate;
 }
 
-/* ✨ soft ambient glow (reduced + smoother) */
-.infra-section .section-img::after {
-  content: "";
-  position: absolute;
-  inset: -30px;
-  border-radius: 40px;
-
-  background: radial-gradient(circle,
-      rgba(0, 119, 255, 0.08),
-      transparent 70%);
-
-  filter: blur(50px);
-  z-index: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* 🧊 premium glass edge (thinner + cleaner) */
+/* premium shadow behind image */
 .infra-section .section-img::before {
   content: "";
   position: absolute;
-  inset: -12px;
-  border-radius: 30px;
-
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.03));
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-
-  z-index: 1;
+  inset: 40px 12px -40px 12px;
+  background: rgba(8, 34, 70, 0.22);
+  filter: blur(50px);
+  border-radius: 34px;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* ================= section-img ================= */
+/* soft blue glow */
+.infra-section .section-img::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 36px;
+  background: radial-gradient(circle, rgba(0, 119, 204, 0.12), transparent 72%);
+  filter: blur(35px);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .infra-section .section-img img {
   position: relative;
-  width: 100%;
-  border-radius: 24px;
   z-index: 2;
+  display: block;
 
-  /* 🎯 refined shadow (less blur, more realism) */
+  width: 100%;
+  height: 520px;
+  max-width: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 28px;
+
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.12),
-    0 40px 90px rgba(0, 0, 0, 0.08);
+    0 25px 65px rgba(8, 34, 70, 0.18),
+    0 60px 120px rgba(8, 34, 70, 0.12);
 
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease;
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.6s ease;
 }
 
-/* ✨ premium hover (less rotation, more depth) */
 .infra-section .section-img:hover img {
-  transform: scale(1.04);
+  transform: translateY(-6px) scale(1.02);
   box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.16),
-    0 60px 120px rgba(0, 0, 0, 0.10);
+    0 35px 90px rgba(8, 34, 70, 0.24),
+    0 80px 150px rgba(8, 34, 70, 0.16);
 }
 
+/* ================= TEXT - KEEP SAME STYLE ================= */
 
-
-.infra-section .section-img:hover::after {
-  opacity: 1;
-}
-
-/* ================= TEXT ================= */
 .infra-section .text {
   position: relative;
   padding-left: 26px;
 }
 
-/* ✨ premium accent line (gradient + glow) */
+/* same premium accent line */
 .infra-section .text::before {
   content: "";
   position: absolute;
@@ -1130,11 +1148,22 @@
     0 0 12px rgba(0, 119, 204, 0.25);
 }
 
-/* ================= HEADING ================= */
+/* heading color same as your current style */
+.infra-section .section-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ff6b00;
+}
+
 .infra-section .text h2 {
   font-size: 46px;
   font-weight: 900;
-  margin-bottom: 20px;
+  line-height: 1.15;
+  margin-bottom: 22px;
   letter-spacing: -0.5px;
 
   background: linear-gradient(90deg, #0b2c5f, #0077cc);
@@ -1142,28 +1171,53 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* ✨ premium paragraph */
 .infra-section .text p {
   font-size: 16px;
   line-height: 1.85;
   color: #5a6675;
   max-width: 520px;
+  margin-bottom: 24px;
 }
 
-
-/* premium keyword highlight */
 .infra-section .text p strong {
   color: #0b2c5f;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .infra-section .grid-2,
+  .infra-section .container .grid-2 {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 55px;
+  }
+
+  .infra-section .section-img,
+  .infra-section .section-img img {
+    min-height: 470px;
+    height: 470px;
+  }
+
+  .infra-section .text h2 {
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 1024px) {
   .infra-section {
-    padding: 100px 0;
+    padding: 95px 0;
   }
 
-  .infra-section .about-page .grid-2 {
-    gap: 50px;
+  .infra-section .grid-2,
+  .infra-section .container .grid-2 {
+    gap: 45px;
+  }
+
+  .infra-section .section-img,
+  .infra-section .section-img img {
+    min-height: 430px;
+    height: 430px;
   }
 
   .infra-section .text h2 {
@@ -1173,38 +1227,33 @@
   .infra-section .text p {
     font-size: 15px;
   }
-
-  .infra-section .section-img::before {
-    inset: -8px;
-  }
-
-  .infra-section .section-img::after {
-    inset: -20px;
-  }
 }
 
 @media (max-width: 768px) {
+  .infra-section {
+    padding: 75px 0;
+  }
 
   .infra-section .grid-2,
-  .infra-section .grid-2.reverse {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .infra-section .about-page .grid-2 {
+  .infra-section .container .grid-2 {
     grid-template-columns: 1fr;
+    gap: 45px;
   }
 
-  .infra-section {
-    padding: 80px 0;
+  .infra-section .grid-2.reverse .text {
+    order: 1;
+  }
+
+  .infra-section .grid-2.reverse .section-img {
+    order: 2;
   }
 
   .infra-section .text {
     padding-left: 0;
     text-align: center;
+    margin: auto;
   }
 
-  /* remove side accent line */
   .infra-section .text::before {
     display: none;
   }
@@ -1214,12 +1263,16 @@
   }
 
   .infra-section .text p {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 14.5px;
   }
 
-  .infra-section .section-img {
-    width: 100%;
+  .infra-section .section-img,
+  .infra-section .section-img img {
+    min-height: 360px;
+    height: 360px;
+    border-radius: 22px;
   }
 }
 
@@ -1228,13 +1281,14 @@
     padding: 60px 0;
   }
 
-  .about-page .infra-section .container {
-    width: 92%;
-  }
-
   .infra-section .text h2 {
     font-size: 26px;
     line-height: 1.3;
+  }
+
+  .infra-section .section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
   }
 
   .infra-section .text p {
@@ -1242,16 +1296,16 @@
     line-height: 1.7;
   }
 
-  /* simplify heavy effects */
+  .infra-section .section-img,
+  .infra-section .section-img img {
+    min-height: 280px;
+    height: 280px;
+    border-radius: 18px;
+  }
+
   .infra-section .section-img::before,
   .infra-section .section-img::after {
     display: none;
-  }
-
-  .infra-section .section-img img {
-    border-radius: 16px;
-    box-shadow:
-      0 15px 40px rgba(0, 0, 0, 0.12);
   }
 }
 
@@ -1264,6 +1318,8 @@
     font-size: 13.5px;
   }
 }
+
+
 
 /* ================= QUALITY SECTION (LIGHT PREMIUM TRUST) ================= */
 .quality-section {

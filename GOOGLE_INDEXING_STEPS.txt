@@ -1,0 +1,17 @@
+Funchill Foods - Google Indexing Steps
+
+1. Upload all files inside this folder to public_html / website root. Do not upload the parent folder only.
+2. Confirm these URLs open:
+   https://www.funchillfoods.com/
+   https://www.funchillfoods.com/robots.txt
+   https://www.funchillfoods.com/sitemap.xml
+3. Open Google Search Console and add domain property: funchillfoods.com
+4. Verify using DNS TXT record.
+5. Submit sitemap: https://www.funchillfoods.com/sitemap.xml
+6. Use URL Inspection for each URL and click Request Indexing:
+   https://www.funchillfoods.com/
+   https://www.funchillfoods.com/about.html
+   https://www.funchillfoods.com/product.html
+   https://www.funchillfoods.com/contact.html
+7. Add official website link in Instagram bio, PotatoPro, ExportersIndia, Justdial, Google Business Profile, LinkedIn/Facebook.
+8. Check indexing with: site:funchillfoods.com

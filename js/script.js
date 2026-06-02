@@ -83,9 +83,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ================= BACK TO TOP CLICK ================= */
   if (backToTop) {
-    backToTop.addEventListener("click", (e) => {
+    const scrollToTop = (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    backToTop.addEventListener("click", scrollToTop);
+    backToTop.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        scrollToTop(e);
+      }
     });
   }
 
@@ -168,12 +175,24 @@ if (navCollapse) {
 
 /* ================= PAGE LOADER ================= */
 
-window.addEventListener("load", () => {
+function hidePageLoader() {
   const loader = document.getElementById("pageLoader");
+  if (!loader) return;
+  loader.classList.add("hide");
+}
 
-  setTimeout(() => {
-    loader.classList.add("hide");
-  }, 500);
-});
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(hidePageLoader, 150);
+  }, { once: true });
+} else {
+  setTimeout(hidePageLoader, 150);
+}
+
+window.addEventListener("load", () => {
+  setTimeout(hidePageLoader, 150);
+}, { once: true });
+
+setTimeout(hidePageLoader, 1600);
 
 
